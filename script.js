@@ -1,5 +1,16 @@
 // Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+async function initializeEmailJS() {
+    // Load config first
+    await window.portfolioConfig.loadConfig();
+    
+    const config = window.portfolioConfig.getEmailJSConfig();
+    if (config.publicKey) {
+        emailjs.init(config.publicKey);
+        console.log('EmailJS initialized successfully');
+    } else {
+        console.warn('EmailJS public key not configured');
+    }
+}
 
 // Project Data
 const mainProjects = [
@@ -235,7 +246,7 @@ function handleScrollAnimations() {
 }
 
 // Contact Form
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const btn = this.querySelector('button[type="submit"]');
@@ -253,37 +264,47 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         message: document.getElementById('message').value
     };
     
-    // Replace with your EmailJS service details
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
-        .then(function() {
-            btn.textContent = 'Message Sent!';
-            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            statusDiv.textContent = 'Message sent successfully!';
-            document.getElementById('contact-form').reset();
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-                statusDiv.textContent = '';
-            }, 3000);
-        })
-        .catch(function() {
-            btn.textContent = 'Failed to Send';
-            btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-            statusDiv.textContent = 'Failed to send message. Please try again.';
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-                statusDiv.textContent = '';
-            }, 3000);
-        });
+    try {
+        const config = window.portfolioConfig.getEmailJSConfig();
+        
+        if (!config.serviceId || !config.templateId) {
+            throw new Error('EmailJS not configured');
+        }
+        
+        await emailjs.send(config.serviceId, config.templateId, formData);
+        
+        btn.textContent = 'Message Sent!';
+        btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        statusDiv.textContent = 'Message sent successfully!';
+        document.getElementById('contact-form').reset();
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            statusDiv.textContent = '';
+        }, 3000);
+        
+    } catch (error) {
+        console.error('EmailJS Error:', error);
+        btn.textContent = 'Failed to Send';
+        btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        statusDiv.textContent = 'Failed to send message. Please try again or email directly.';
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            statusDiv.textContent = '';
+        }, 3000);
+    }
 });
 
 // Initialize Everything
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Initialize EmailJS
+    await initializeEmailJS();
+    
     // Start typing animation
     setTimeout(typeWriter, 1000);
     

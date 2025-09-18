@@ -9,7 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -28,30 +32,31 @@
 </head>
 <body class="bg-background text-text overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-background/90 backdrop-blur-sm z-50 border-b border-primary" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-accent/20" role="navigation" aria-label="Main navigation">
         <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold text-accent">Divya Singh</div>
-                <div class="hidden md:flex space-x-2">
+            <div class="flex justify-end items-center">
+                <div class="hidden md:flex items-center space-x-1">
                     <a href="#home" class="nav-link" aria-label="Go to home section">Home</a>
                     <a href="#about" class="nav-link" aria-label="Go to about section">About</a>
                     <a href="#skills" class="nav-link" aria-label="Go to skills section">Skills</a>
                     <a href="#projects" class="nav-link" aria-label="Go to projects section">Projects</a>
                     <a href="#contact" class="nav-link" aria-label="Go to contact section">Contact</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-text" aria-label="Toggle mobile menu" aria-expanded="false">
+                <div class="md:hidden ml-auto">
+                    <button id="mobile-menu-btn" class="nav-mobile-btn" aria-label="Toggle mobile menu" aria-expanded="false">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4" role="menu">
-                <a href="#home" class="block py-3 nav-link" role="menuitem">Home</a>
-                <a href="#about" class="block py-3 nav-link" role="menuitem">About</a>
-                <a href="#skills" class="block py-3 nav-link" role="menuitem">Skills</a>
-                <a href="#projects" class="block py-3 nav-link" role="menuitem">Projects</a>
-                <a href="#contact" class="block py-3 nav-link" role="menuitem">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-6 pb-4" role="menu">
+                <div class="flex flex-col space-y-2">
+                    <a href="#home" class="nav-link-mobile" role="menuitem">Home</a>
+                    <a href="#about" class="nav-link-mobile" role="menuitem">About</a>
+                    <a href="#skills" class="nav-link-mobile" role="menuitem">Skills</a>
+                    <a href="#projects" class="nav-link-mobile" role="menuitem">Projects</a>
+                    <a href="#contact" class="nav-link-mobile" role="menuitem">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
