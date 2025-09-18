@@ -176,7 +176,9 @@ document.getElementById('show-more-btn').addEventListener('click', function() {
     
     if (moreProjectsSection.classList.contains('hidden')) {
         moreProjectsSection.classList.remove('hidden');
+        moreProjectsSection.setAttribute('aria-hidden', 'false');
         btn.textContent = 'Show Less Projects';
+        btn.setAttribute('aria-expanded', 'true');
         
         // Animate in the new projects
         setTimeout(() => {
@@ -189,7 +191,9 @@ document.getElementById('show-more-btn').addEventListener('click', function() {
         }, 50);
     } else {
         moreProjectsSection.classList.add('hidden');
+        moreProjectsSection.setAttribute('aria-hidden', 'true');
         btn.textContent = 'View More Projects';
+        btn.setAttribute('aria-expanded', 'false');
     }
 });
 
@@ -210,7 +214,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Mobile Menu Toggle
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    
     mobileMenu.classList.toggle('hidden');
+    this.setAttribute('aria-expanded', !isExpanded);
 });
 
 // Scroll Animations
@@ -227,31 +234,17 @@ function handleScrollAnimations() {
     });
 }
 
-// Skill Bar Animations
-function animateSkillBars() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    skillItems.forEach(item => {
-        const skillLevel = item.getAttribute('data-skill');
-        const progressBar = item.querySelector('.skill-progress');
-        const itemTop = item.getBoundingClientRect().top;
-        
-        if (itemTop < window.innerHeight - 100) {
-            setTimeout(() => {
-                progressBar.style.width = skillLevel + '%';
-            }, 200);
-        }
-    });
-}
-
 // Contact Form
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const btn = this.querySelector('button[type="submit"]');
+    const statusDiv = document.getElementById('submit-status');
     const originalText = btn.textContent;
+    
     btn.innerHTML = '<span class="loading"></span> Sending...';
     btn.disabled = true;
+    statusDiv.textContent = 'Sending your message...';
     
     const formData = {
         name: document.getElementById('name').value,
@@ -264,23 +257,27 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
         .then(function() {
             btn.textContent = 'Message Sent!';
-            btn.style.backgroundColor = '#10b981';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            statusDiv.textContent = 'Message sent successfully!';
             document.getElementById('contact-form').reset();
             
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.style.backgroundColor = '';
+                btn.style.background = '';
                 btn.disabled = false;
+                statusDiv.textContent = '';
             }, 3000);
         })
         .catch(function() {
             btn.textContent = 'Failed to Send';
-            btn.style.backgroundColor = '#ef4444';
+            btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+            statusDiv.textContent = 'Failed to send message. Please try again.';
             
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.style.backgroundColor = '';
+                btn.style.background = '';
                 btn.disabled = false;
+                statusDiv.textContent = '';
             }, 3000);
         });
 });
@@ -298,12 +295,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial scroll animation check
     handleScrollAnimations();
-    animateSkillBars();
     
     // Add scroll event listener
     window.addEventListener('scroll', function() {
         handleScrollAnimations();
-        animateSkillBars();
     });
     
     // Add initial fade-in class to elements

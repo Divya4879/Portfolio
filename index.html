@@ -28,30 +28,30 @@
 </head>
 <body class="bg-background text-text overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-background/90 backdrop-blur-sm z-50 border-b border-primary">
+    <nav class="fixed top-0 w-full bg-background/90 backdrop-blur-sm z-50 border-b border-primary" role="navigation" aria-label="Main navigation">
         <div class="max-w-6xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-xl font-bold text-accent">Divya Singh</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home" class="nav-link" aria-label="Go to home section">Home</a>
+                    <a href="#about" class="nav-link" aria-label="Go to about section">About</a>
+                    <a href="#skills" class="nav-link" aria-label="Go to skills section">Skills</a>
+                    <a href="#projects" class="nav-link" aria-label="Go to projects section">Projects</a>
+                    <a href="#contact" class="nav-link" aria-label="Go to contact section">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-text">
+                    <button id="mobile-menu-btn" class="text-text" aria-label="Toggle mobile menu" aria-expanded="false">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#home" class="block py-2 nav-link">Home</a>
-                <a href="#about" class="block py-2 nav-link">About</a>
-                <a href="#skills" class="block py-2 nav-link">Skills</a>
-                <a href="#projects" class="block py-2 nav-link">Projects</a>
-                <a href="#contact" class="block py-2 nav-link">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4" role="menu">
+                <a href="#home" class="block py-3 nav-link" role="menuitem">Home</a>
+                <a href="#about" class="block py-3 nav-link" role="menuitem">About</a>
+                <a href="#skills" class="block py-3 nav-link" role="menuitem">Skills</a>
+                <a href="#projects" class="block py-3 nav-link" role="menuitem">Projects</a>
+                <a href="#contact" class="block py-3 nav-link" role="menuitem">Contact</a>
             </div>
         </div>
     </nav>
@@ -61,7 +61,7 @@
         <div id="particles-container" class="absolute inset-0"></div>
         <div class="text-center z-10 px-6">
             <div class="profile-image-container mb-8">
-                <img src="profile.jpg" alt="Divya Singh" class="profile-image">
+                <img src="profilePic.png" alt="Divya Singh" class="profile-image">
             </div>
             <h1 class="text-5xl md:text-7xl font-bold mb-4 text-accent">Divya Singh</h1>
             <div class="text-xl md:text-2xl mb-8 text-secondary">
@@ -92,32 +92,44 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="section-title">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <p class="text-lg leading-relaxed">
+    <section id="about" class="py-24 px-6" role="region" aria-labelledby="about-heading">
+        <div class="max-w-5xl mx-auto">
+            <h2 id="about-heading" class="section-title">About Me</h2>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <p class="text-lg leading-relaxed text-text/90">
                         MTech student passionate about fitness, clean eating, and self-help books. Currently seeking remote/onsite opportunities and freelancing projects.
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed text-text/90">
                         I'm driven by transforming ideas into solutions - identifying real problems and building projects from concept to completion. My journey spans full-stack development, AI integration, and creating meaningful user experiences.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-3">
                         <span class="skill-tag">Problem Solver</span>
                         <span class="skill-tag">Full-Stack Developer</span>
                         <span class="skill-tag">AI Enthusiast</span>
                         <span class="skill-tag">Fitness Lover</span>
                     </div>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-primary p-6 rounded-lg border border-accent/20">
-                        <h3 class="text-xl font-semibold mb-3 text-accent">Current Focus</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center"><i class="fas fa-graduation-cap text-secondary mr-3"></i>MTech Student</li>
-                            <li class="flex items-center"><i class="fas fa-briefcase text-secondary mr-3"></i>Seeking Opportunities</li>
-                            <li class="flex items-center"><i class="fas fa-laptop-code text-secondary mr-3"></i>Freelancing</li>
-                            <li class="flex items-center"><i class="fas fa-dumbbell text-secondary mr-3"></i>Fitness Enthusiast</li>
+                <div class="space-y-6">
+                    <div class="bg-primary/50 p-8 rounded-xl border border-accent/20 backdrop-filter backdrop-blur-lg">
+                        <h3 class="text-2xl font-semibold mb-6" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Current Focus</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-text/90">
+                                <i class="fas fa-graduation-cap text-secondary mr-4 text-xl w-6" aria-hidden="true"></i>
+                                <span>MTech Student</span>
+                            </li>
+                            <li class="flex items-center text-text/90">
+                                <i class="fas fa-briefcase text-secondary mr-4 text-xl w-6" aria-hidden="true"></i>
+                                <span>Seeking Opportunities</span>
+                            </li>
+                            <li class="flex items-center text-text/90">
+                                <i class="fas fa-laptop-code text-secondary mr-4 text-xl w-6" aria-hidden="true"></i>
+                                <span>Freelancing</span>
+                            </li>
+                            <li class="flex items-center text-text/90">
+                                <i class="fas fa-dumbbell text-secondary mr-4 text-xl w-6" aria-hidden="true"></i>
+                                <span>Fitness Enthusiast</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -126,71 +138,79 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 bg-primary/30">
+    <section id="skills" class="py-24 px-6" role="region" aria-labelledby="skills-heading">
         <div class="max-w-6xl mx-auto">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="skill-category">
-                    <h3 class="text-xl font-semibold mb-4 text-accent">Frontend</h3>
-                    <div class="space-y-3">
-                        <div class="skill-item" data-skill="90">
-                            <span>JavaScript</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <span>React</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="88">
-                            <span>HTML/CSS</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="80">
-                            <span>TypeScript</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
+                    <h3>Languages</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">JavaScript (ES6+)</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Java</span>
                     </div>
                 </div>
+                
                 <div class="skill-category">
-                    <h3 class="text-xl font-semibold mb-4 text-accent">Backend</h3>
-                    <div class="space-y-3">
-                        <div class="skill-item" data-skill="85">
-                            <span>Python</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="80">
-                            <span>Flask</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="75">
-                            <span>MongoDB</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="70">
-                            <span>Redis</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
+                    <h3>Frontend Development</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">React.js</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                        <span class="skill-item">Bootstrap</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">KendoReact</span>
+                        <span class="skill-item">Chart.js</span>
+                        <span class="skill-item">Canvas API</span>
+                        <span class="skill-item">Responsive Design</span>
+                        <span class="skill-item">UI/UX Implementation</span>
                     </div>
                 </div>
+                
                 <div class="skill-category">
-                    <h3 class="text-xl font-semibold mb-4 text-accent">Tools & Others</h3>
-                    <div class="space-y-3">
-                        <div class="skill-item" data-skill="90">
-                            <span>Git/GitHub</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <span>AI/ML Integration</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="80">
-                            <span>Chrome Extensions</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
-                        <div class="skill-item" data-skill="88">
-                            <span>Deployment</span>
-                            <div class="skill-bar"><div class="skill-progress"></div></div>
-                        </div>
+                    <h3>Backend Development</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Flask (Python)</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Express.js</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Redis</span>
+                        <span class="skill-item">MongoDB</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>AI / ML Integration</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Groq LLMs</span>
+                        <span class="skill-item">LLaMA</span>
+                        <span class="skill-item">Mixtral</span>
+                        <span class="skill-item">AssemblyAI</span>
+                        <span class="skill-item">Speech-to-Text</span>
+                        <span class="skill-item">AI Feedback Systems</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Browser / Extensions</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Chrome Extension Development</span>
+                        <span class="skill-item">Manifest V3</span>
+                        <span class="skill-item">Chrome APIs</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-grid">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Netlify</span>
+                        <span class="skill-item">Render</span>
+                        <span class="skill-item">VS Code</span>
                     </div>
                 </div>
             </div>
@@ -198,84 +218,95 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6">
+    <section id="projects" class="py-24 px-6" role="region" aria-labelledby="projects-heading">
         <div class="max-w-6xl mx-auto">
-            <h2 class="section-title">Featured Projects</h2>
-            <div id="main-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <h2 id="projects-heading" class="section-title">Featured Projects</h2>
+            <div id="main-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Main Projects will be populated by JavaScript -->
             </div>
             
-            <div class="text-center mb-8">
-                <button id="show-more-btn" class="bg-accent text-background px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 transform hover:scale-105">
+            <div class="text-center mb-12">
+                <button id="show-more-btn" class="bg-accent text-background px-10 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent/50" aria-expanded="false" aria-controls="more-projects">
                     View More Projects
                 </button>
             </div>
             
-            <div id="more-projects" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="more-projects" class="hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8" aria-hidden="true">
                 <!-- More Projects will be populated by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-primary/30">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-semibold text-accent">Let's Connect</h3>
-                    <p class="text-lg">
-                        I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-secondary mr-4 text-xl"></i>
-                            <span>divyasingh0803@gmail.com</span>
+    <section id="contact" class="py-24 px-6" role="region" aria-labelledby="contact-heading">
+        <div class="max-w-5xl mx-auto">
+            <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+            <div class="contact-section">
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and development. Feel free to reach out!
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span>divyasingh0803@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <span>Available for Remote/Onsite Work</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-briefcase" aria-hidden="true"></i>
+                                <span>Open to Freelancing Projects</span>
+                            </div>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-secondary mr-4 text-xl"></i>
-                            <span>Available for Remote/Onsite Work</span>
+                        <div class="flex flex-wrap gap-4" role="list" aria-label="Social media links">
+                            <a href="https://www.linkedin.com/in/divya-singh-444b4b190" target="_blank" class="social-link" aria-label="LinkedIn profile" rel="noopener">
+                                <i class="fab fa-linkedin text-xl" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://github.com/Divya4879" target="_blank" class="social-link" aria-label="GitHub profile" rel="noopener">
+                                <i class="fab fa-github text-xl" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://dev.to/divyasinghdev" target="_blank" class="social-link" aria-label="Dev.to profile" rel="noopener">
+                                <i class="fab fa-dev text-xl" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://devpost.com/divyasingh0803" target="_blank" class="social-link" aria-label="Devpost profile" rel="noopener">
+                                <i class="fas fa-trophy text-xl" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://x.com/TechDsa" target="_blank" class="social-link" aria-label="X (Twitter) profile" rel="noopener">
+                                <i class="fab fa-twitter text-xl" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/divya-singh-444b4b190" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="https://github.com/Divya4879" target="_blank" class="social-link">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://dev.to/divyasinghdev" target="_blank" class="social-link">
-                            <i class="fab fa-dev text-xl"></i>
-                        </a>
-                    </div>
+                    <form id="contact-form" class="space-y-6" role="form" aria-label="Contact form">
+                        <div>
+                            <label for="name" class="sr-only">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="contact-input" aria-describedby="name-error">
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="contact-input" aria-describedby="email-error">
+                        </div>
+                        <div>
+                            <label for="subject" class="sr-only">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required class="contact-input" aria-describedby="subject-error">
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Your Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Your Message" required class="contact-input" aria-describedby="message-error"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" aria-describedby="submit-status">
+                            Send Message
+                        </button>
+                        <div id="submit-status" class="sr-only" aria-live="polite"></div>
+                    </form>
                 </div>
-                <form id="contact-form" class="space-y-6">
-                    <div>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required class="contact-input">
-                    </div>
-                    <div>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required class="contact-input">
-                    </div>
-                    <div>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required class="contact-input">
-                    </div>
-                    <div>
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="contact-input"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-accent text-background py-3 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 transform hover:scale-105">
-                        Send Message
-                    </button>
-                </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-primary">
-        <div class="max-w-6xl mx-auto text-center">
-            <p>&copy; 2024 Divya Singh. Built with passion for the DevOne Hackathon.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
