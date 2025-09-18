@@ -15,36 +15,36 @@ async function initializeEmailJS() {
 // Project Data
 const mainProjects = [
     {
-        title: "DSA-Interview-Ready",
+        title: "DSA Interview Ready",
         description: "A full-stack web platform to help developers prepare for interviews with AI-driven code feedback, multi-language support, and recruiter insights.",
-        image: "https://via.placeholder.com/400x200/0f172a/3b82f6?text=DSA+Interview+Ready",
+        image: "assets/images/project1.png",
         tech: ["Flask", "Redis", "MongoDB", "Groq LLMs", "JavaScript"],
         github: "https://github.com/Divya4879/DSA-Interview-Ready",
         live: "https://dsa-interview-ready.onrender.com",
         features: ["Multi-language coding practice", "AI feedback integration", "Real-time caching", "Recruiter dashboard"]
     },
     {
-        title: "FocusMode Chrome Extension",
+        title: "FocusMode - Chrome Extension",
         description: "A distraction-free productivity extension with strict modes and Pomodoro timers, designed to stop users from bypassing blocks.",
-        image: "https://via.placeholder.com/400x200/0f172a/06b6d4?text=FocusMode+Extension",
+        image: "assets/images/project2.png",
         tech: ["JavaScript", "Chrome APIs", "Manifest V3", "HTML", "CSS"],
         github: "https://github.com/Divya4879/FocusMode",
         live: null,
         features: ["Strict site-blocking", "Pomodoro sessions", "Tamper-proof logic", "Lightweight UI"]
     },
     {
-        title: "Habit-Tracker (Mindful Metrics)",
+        title: "Mindful Metrics",
         description: "A modern dashboard app to build and track habits with visual analytics and AI-powered insights for improving consistency.",
-        image: "https://via.placeholder.com/400x200/0f172a/3b82f6?text=Mindful+Metrics",
+        image: "assets/images/project3.png",
         tech: ["React", "TypeScript", "KendoReact", "Chart.js", "Netlify"],
         github: "https://github.com/Divya4879/Habit-Tracker",
         live: "https://mindful-metrics.netlify.app",
         features: ["Interactive charts", "Progress visualization", "AI suggestions", "Responsive design"]
     },
     {
-        title: "Language-Fluency-Coach",
+        title: "Speak Reflect Improve",
         description: "An AI + speech web app that helps learners improve English fluency by analyzing pronunciation, grammar, and speaking pace.",
-        image: "https://via.placeholder.com/400x200/0f172a/06b6d4?text=Fluency+Coach",
+        image: "assets/images/project4.png",
         tech: ["Flask", "AssemblyAI", "Groq Llama3", "Bootstrap", "Render"],
         github: "https://github.com/Divya4879/Language-Fluency-Coach",
         live: "https://language-fluency-coach.onrender.com",
@@ -52,8 +52,8 @@ const mainProjects = [
     },
     {
         title: "TestPrepGame",
-        description: "A gamified AWS certification prep app with a retro arcade vibe. Makes studying cloud concepts fun and interactive.",
-        image: "https://via.placeholder.com/400x200/0f172a/3b82f6?text=TestPrepGame",
+        description: "A gamified AWS certification prep app with a retro arcade vibe. Makes studying AWS certification cloud concepts fun and interactive.",
+        image: "assets/images/project5.png",
         tech: ["HTML", "CSS", "JavaScript", "Web Audio API", "Netlify"],
         github: "https://github.com/Divya4879/TestPrepGame",
         live: "https://testprepgame.netlify.app",
@@ -63,27 +63,27 @@ const mainProjects = [
 
 const moreProjects = [
     {
-        title: "Adaptive-AI-Learning",
+        title: "Adaptive AI Learning",
         description: "An adaptive learning platform powered by custom algorithms to personalize study experiences based on user performance.",
-        image: "https://via.placeholder.com/400x200/0f172a/06b6d4?text=Adaptive+AI+Learning",
+        image: "assets/images/project6.png",
         tech: ["JavaScript", "HTML", "CSS", "Custom Algorithms"],
         github: "https://github.com/Divya4879/Adaptive-AI-Learning",
         live: null,
         features: ["Adaptive algorithms", "Dynamic difficulty", "Progress tracking", "Personalized learning"]
     },
     {
-        title: "GreatfulMind",
+        title: "MindMetrics",
         description: "A gratitude journaling web app that promotes mindfulness with daily reflections and visual habit analytics.",
-        image: "https://via.placeholder.com/400x200/0f172a/3b82f6?text=GreatfulMind",
+        image: "assets/images/project7.png",
         tech: ["React", "JavaScript", "Chart.js", "CSS", "Netlify"],
         github: "https://github.com/Divya4879/GreatfulMind",
         live: "https://greatfulmind.netlify.app",
         features: ["Daily journaling", "Progress visualization", "Mindfulness tracking", "Clean UI"]
     },
     {
-        title: "Magical-Garden",
+        title: "Magical Garden",
         description: "An interactive creative front-end project where users cultivate a digital garden that grows and animates with interactions.",
-        image: "https://via.placeholder.com/400x200/0f172a/06b6d4?text=Magical+Garden",
+        image: "assets/images/project8.png",
         tech: ["HTML", "CSS", "JavaScript", "Canvas API"],
         github: "https://github.com/Divya4879/Magical-Garden",
         live: null,
